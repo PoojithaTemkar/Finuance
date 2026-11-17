@@ -1,0 +1,30 @@
+.add-transaction-page { max-width: 1000px; margin: 0 auto; }
+.transaction-form { background: var(--surface); border: 1px solid var(--border); border-radius: 18px; padding: 30px; box-shadow: var(--shadow); }
+.type-selector { display: flex; gap: 10px; margin-bottom: 30px; }
+.type-option { width: 160px; padding: 13px; border: 1px solid var(--border); border-radius: 10px; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 9px; color: var(--muted); font-size: 13px; }
+.type-option input { display: none; }
+.type-option span { font-size: 18px; }
+.type-option.selected { border-color: var(--rose); background: var(--rose-light); color: var(--rose-dark); }
+.income-option.selected, .type-option.selected.income { border-color: var(--green); background: var(--green-light); color: var(--green); }
+.form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; }
+.form-group { display: flex; flex-direction: column; gap: 7px; }
+.form-group label { font-size: 11px; color: var(--muted); font-weight: 600; }
+.form-group input, .form-group select { border: 1px solid var(--border); background: var(--surface); border-radius: 9px; padding: 12px; outline: none; color: var(--text); font-size: 12px; }
+.form-group input:focus, .form-group select:focus { border-color: var(--rose); }
+.amount-input { display: flex; align-items: center; border: 1px solid var(--border); border-radius: 9px; padding-left: 12px; }
+.amount-input span { color: var(--muted); }
+.amount-input input { border: none; flex: 1; }
+.amount-input input:focus { border: none; }
+.form-actions { display: flex; justify-content: flex-end; gap: 10px; margin-top: 30px; padding-top: 20px; border-top: 1px solid var(--border); }
+.cancel-btn, .save-btn { border: none; padding: 11px 20px; border-radius: 9px; cursor: pointer; font-size: 12px; }
+.cancel-btn { background: var(--cream2); color: var(--text); }
+.save-btn { background: var(--rose); color: var(--surface); }
+.form-section { margin-bottom: 28px; }
+.form-section-title { margin-bottom: 16px; }
+.form-section-title h2 { font-family: 'Playfair Display', serif; font-size: 19px; }
+.form-section-title p { color: var(--muted); font-size: 11px; margin-top: 4px; }
+.secondary-button { border: none; background: var(--cream2); color: var(--text); padding: 11px 20px; border-radius: 9px; cursor: pointer; font-size: 12px; }
+.primary-button { border: none; background: var(--green); color: var(--bg); padding: 11px 20px; border-radius: 9px; cursor: pointer; font-size: 12px; text-decoration: none; }
+.form-error { margin-top: 14px; color: var(--red); font-size: 12px; }
+.transaction-form button:disabled { opacity: 0.6; cursor: wait; }
+@media (max-width: 700px) { .form-grid { grid-template-columns: 1fr; } }

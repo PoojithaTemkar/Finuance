@@ -1,0 +1,43 @@
+.transactions-page { max-width: 1500px; margin: 0 auto; }
+.page-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 30px; }
+.page-header h1 { font-family: 'Playfair Display', serif; font-size: 34px; font-weight: 600; }
+.page-header p { color: var(--muted); font-size: 13px; margin-top: 5px; }
+.primary-button { border: none; background: var(--green); color: var(--bg); padding: 12px 18px; border-radius: 9px; cursor: pointer; font-size: 12px; text-decoration: none; }
+.transaction-summary { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; margin-bottom: 20px; }
+.summary-card { background: var(--surface); border: 1px solid var(--border); border-radius: 14px; padding: 21px; box-shadow: var(--shadow); }
+.summary-card span, .summary-card small { display: block; color: var(--muted); font-size: 11px; }
+.summary-card strong { display: block; font-family: 'Playfair Display', serif; font-size: 25px; margin: 10px 0 5px; }
+.summary-card small { font-size: 10px; }
+.transactions-toolbar { display: flex; justify-content: space-between; gap: 20px; padding: 20px; background: var(--surface); border: 1px solid var(--border); border-bottom: none; border-radius: 15px 15px 0 0; }
+.transaction-search { width: 300px; border: 1px solid var(--border); border-radius: 9px; padding: 10px 12px; outline: none; background: transparent; font-size: 12px; }
+.transaction-filters { display: flex; gap: 6px; }
+.transaction-filters button { border: 1px solid var(--border); background: transparent; color: var(--muted); padding: 8px 15px; border-radius: 20px; cursor: pointer; font-size: 11px; }
+.transaction-filters button.active { background: var(--rose); color: white; border-color: var(--rose); }
+.transactions-table-card { background: var(--surface); border: 1px solid var(--border); border-radius: 0 0 15px 15px; box-shadow: var(--shadow); overflow: hidden; }
+.transactions-table-wrapper { overflow-x: auto; }
+.transactions-table { width: 100%; table-layout: fixed; border-collapse: collapse; }
+.transactions-table th, .transactions-table td { padding: 14px 12px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; text-align: left; }
+.transactions-table th { background: var(--cream2); color: var(--text3); font-size: 9px; letter-spacing: 1px; }
+.transactions-table td { border-top: 1px solid var(--purple-light); color: var(--text2); font-size: 11px; }
+.transactions-table th:nth-child(1), .transactions-table td:nth-child(1) { width: 25%; }
+.transactions-table th:nth-child(2), .transactions-table td:nth-child(2) { width: 18%; }
+.transactions-table th:nth-child(3), .transactions-table td:nth-child(3) { width: 14%; }
+.transactions-table th:nth-child(4), .transactions-table td:nth-child(4) { width: 14%; }
+.transactions-table th:nth-child(5), .transactions-table td:nth-child(5) { width: 13%; }
+.transactions-table th:nth-child(6), .transactions-table td:nth-child(6) { width: 16%; }
+.transaction-name { display: flex; align-items: center; gap: 10px; min-width: 0; }
+.transaction-name > div:last-child { min-width: 0; overflow: hidden; text-overflow: ellipsis; }
+.transaction-name strong, .transaction-name span { display: block; overflow: hidden; text-overflow: ellipsis; }
+.transaction-name strong { color: var(--text); font-size: 12px; }
+.transaction-name span { color: var(--muted); font-size: 9px; margin-top: 3px; }
+.transaction-avatar { width: 34px; height: 34px; flex-shrink: 0; border-radius: 10px; background: var(--rose-light); color: var(--rose); display: flex; align-items: center; justify-content: center; font-weight: 600; }
+.amount.income { color: var(--green) !important; }
+.amount.expense { color: var(--red) !important; }
+.transaction-actions { display: flex; align-items: center; justify-content: flex-start; gap: 10px; white-space: nowrap; }
+.edit-button, .delete-button { flex-shrink: 0; white-space: nowrap; border: none; background: transparent; font-size: 10px; cursor: pointer; padding: 5px; }
+.edit-button { color: var(--green); }
+.delete-button { color: var(--text3); }
+.delete-button:hover { color: var(--red); }
+.empty-state { text-align: center; padding: 60px; color: var(--muted); font-size: 13px; }
+@media (max-width: 1000px) { .transaction-summary { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 700px) { .transactions-toolbar { flex-direction: column; } .transaction-search { width: 100%; } }

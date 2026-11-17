@@ -1,0 +1,82 @@
+npm create vite@latest frontend
+cd frontend
+npm install
+npm run dev
+
+frontend has its own package.json.
+Therefore, frontend packages must be installed here:
+PS C:\Users\HOME\Desktop\Finuance\frontend>
+For example:
+//npm install react-router-dom
+
+Frontend notes:
+-FinanceContext stores transactions in one shared place and saves them in localStorage.
+-Add, edit, and delete now update every page automatically.
+- Dashboard and Analytics read totals from the shared transaction data.
+-CSS variables give income, expense, warning, and information colors clear meanings.
+
+Backend notes:
+<!-- npm init -y -->
+creates package.json(maintains dependencies and scripts)
+<!-- npm install express pg dotenv cors -->
+These four packages have clear purposes:
+express-Creates our REST API/server
+pg-Connects Node.js to PostgreSQL
+dotenv-Reads secrets/configuration from .env
+cors-Allows your React frontend to communicate with the backend
+<!-- backend/.env -->
+
+- The separate backend/ folder keeps the new PostgreSQL API apart from the old SQLite server.js.
+- backend/package.json lists the packages used by the backend and its start commands.
+- Express creates the web server; CORS lets the frontend make requests to it.
+- express.json() lets Express read JSON request bodies.
+- backend/.env stores local settings like the port and database login; never share its password.
+- backend/.gitignore keeps .env and node_modules out of Git.
+- backend/config/db.js uses a PostgreSQL Pool to reuse database connections.
+- backend/server.js starts the API and defines GET /api/health as a connection check.
+- npm run dev starts the backend and restarts it when server files change.
+- npm start starts the backend without watching for file changes.
+
+Postgre
+DATABASE CONNECTIONS — FINUANCE
+FINUANCE DATABASE:
+finuance
+├── users
+├── categories
+├── transactions
+└── budgets
+MAIN RELATIONSHIPS:
+- One user can have many transactions.
+- One user can have many budgets.
+- One category can belong to many transactions.
+- One category can be used by many budgets.
+
+BACKEND CONNECTION:
+React Frontend
+    ↓
+Node.js + Express
+    ↓
+PostgreSQL (finuance database)
+
+- The backend connects to PostgreSQL using the pg package.
+- Database connection details are stored in backend/.env.
+- DB_NAME=finuance tells the backend to use the Finuance database.
+- The React frontend never connects directly to PostgreSQL.
+- MongoDB is NOT being used in Finuance.
+
+Thunder Client sends that request → Express receives it → your route executes the SQL → PostgreSQL stores it
+
+BATCH 6 - FRONTEND API INTEGRATION (COMPLETE)
+- frontend/src/api.js centralizes fetch calls; React talks to Express, never directly to PostgreSQL.
+- FinanceContext loads and mutates transactions through the API; financial records no longer use localStorage.
+- Transaction, category, budget, Dashboard, and Analytics pages now read PostgreSQL-backed API data.
+- The UI's transaction description is stored in the database description field; user_id: 1 remains temporary until Batch 7.
+- Start backend with `cd backend; npm run dev` and frontend with `cd frontend; npm run dev` in separate terminals.
+- Verified transaction add/edit/delete, database-backed category/budget/analytics reads, and persistence after refresh.
+- `npm run lint` and `npm run build` both pass from frontend/.
+
+BATCH 7 - AUTHENTICATION (NOT STARTED)
+- Install auth dependencies from the project root with `cd backend; npm install bcrypt jsonwebtoken` when starting Batch 7.
+- bcrypt hashes passwords; JWTs identify signed-in users, and middleware protects private API routes.
+- Scope transactions, budgets, and analytics by the authenticated user's user_id.
+- Store JWT_SECRET in backend/.env and never commit or share the secret.

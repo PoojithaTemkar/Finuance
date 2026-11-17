@@ -1,0 +1,24 @@
+FINUANCE - PROJECT SUMMARY
+
+CURRENT APPLICATION
+
+- Frontend: React with Vite in frontend/
+- Backend: Express API in backend/
+- Database: PostgreSQL via the pg connection pool in backend/config/db.js
+- Frontend integration: frontend/src/api.js calls the backend API
+- Main API areas: transactions, categories, budgets, and analytics
+
+RUNNING LOCALLY
+
+1. Configure backend/.env with the PostgreSQL connection settings.
+2. Ensure PostgreSQL is running and the schema expected by the API exists.
+   Database migrations and seed scripts are not currently included.
+3. In backend/, run npm ci and npm run dev.
+4. In frontend/, run npm ci and npm run dev.
+5. Open the Vite development URL shown in the frontend terminal.
+
+The backend defaults to port 5000 and exposes GET /api/health. The frontend
+uses http://localhost:5000/api unless VITE_API_BASE_URL is configured.
+
+The obsolete standalone HTML frontend and root-level SQLite server,
+configuration, and seed script have been removed. See README.md for details.
